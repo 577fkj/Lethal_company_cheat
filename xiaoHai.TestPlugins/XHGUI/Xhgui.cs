@@ -326,8 +326,18 @@ namespace XHGUI
 		// Token: 0x06000036 RID: 54 RVA: 0x000031D8 File Offset: 0x000013D8
 		private void SetMoney()
 		{
-			Terminal terminal = new Terminal();
-			terminal.groupCredits = int.Parse(this.money);
+			foreach (Terminal Terminal in FindObjectsOfType<Terminal>())
+			{
+				if (GameNetworkManager.Instance.localPlayerController.IsServer)
+				{
+					Terminal.groupCredits = int.Parse(this.money);
+				}
+				else
+				{
+					Terminal.groupCredits = int.Parse(this.money);
+					Terminal.SyncGroupCreditsServerRpc(Terminal.groupCredits, Terminal.numberOfItemsInDropship);
+				}
+			}
 		}
 
 		// Token: 0x06000037 RID: 55 RVA: 0x00003200 File Offset: 0x00001400
