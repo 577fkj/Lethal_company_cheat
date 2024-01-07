@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F68D2B42-8071-42D7-9F0A-525D5FD294E6}</ProjectGuid>
+    <ProjectGuid>{88E3347A-DEF7-4EED-938A-81E0CB91C1E0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>xiaoHai.TestPlugins</RootNamespace>
     <AssemblyName>xiaoHai.TestPlugins</AssemblyName>
@@ -40,19 +40,32 @@
     <Reference Include="BepInEx">
       <HintPath>H:\Lethal Company\BepInEx\core\BepInEx.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
+    <Reference Include="DissonanceVoip">
+      <HintPath>H:\Lethal Company\Lethal Company_Data\Managed\DissonanceVoip.dll</HintPath>
+    </Reference>
+    <Reference Include="Facepunch.Steamworks.Win64">
+      <HintPath>H:\Lethal Company\Lethal Company_Data\Managed\Facepunch.Steamworks.Win64.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>H:\Lethal Company\Lethal Company_Data\Managed\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>H:\Lethal Company\Lethal Company_Data\Managed\System.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.InputSystem">
       <HintPath>H:\Lethal Company\Lethal Company_Data\Managed\Unity.InputSystem.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Netcode.Runtime">
       <HintPath>H:\Lethal Company\Lethal Company_Data\Managed\Unity.Netcode.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Networking.Transport">
-      <HintPath>H:\Lethal Company\Lethal Company_Data\Managed\Unity.Networking.Transport.dll</HintPath>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>H:\Lethal Company\Lethal Company_Data\Managed\Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
       <HintPath>H:\Lethal Company\Lethal Company_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>H:\Lethal Company\Lethal Company_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AudioModule">
       <HintPath>H:\Lethal Company\Lethal Company_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
@@ -66,11 +79,11 @@
     <Reference Include="UnityEngine.PhysicsModule">
       <HintPath>H:\Lethal Company\Lethal Company_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
-      <HintPath>H:\Lethal Company\Lethal Company_Data\Managed\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>H:\Lethal Company\Lethal Company_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.UnityWebRequestModule">
-      <HintPath>H:\Lethal Company\Lethal Company_Data\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>H:\Lethal Company\Lethal Company_Data\Managed\UnityEngine.UIModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -80,21 +93,35 @@
     <Compile Include="editenemy\EditEnemy.cs" />
     <Compile Include="editenemy\editflowermanAI.cs" />
     <Compile Include="editenemy\editmaskman.cs" />
+    <Compile Include="EditItem\PatcherTool_LateUpdate_Patch.cs" />
+    <Compile Include="EditItem\ShotgunItem_ItemActivate_Patch.cs" />
     <Compile Include="EditnewLevel\Patches\EditNewLevel.cs" />
     <Compile Include="Editplayer\Patches\editplayer.cs" />
     <Compile Include="Editplayer\Patches\EnemyAIPatch.cs" />
+    <Compile Include="Editplayer\Patches\HUDManager_HoldInteractionFill_Patch.cs" />
     <Compile Include="Editplayer\Patches\IsDisconnect.cs" />
     <Compile Include="Editplayer\Patches\OpenShipDoorsPatch.cs" />
+    <Compile Include="Editplayer\Patches\PlayerControllerB_CheckConditionsForEmote_Patch.cs" />
     <Compile Include="Editplayer\Patches\ResetMiscValuesPatch.cs" />
+    <Compile Include="Editplayer\Patches\ShipBuildModeManager_PlayerMeetsConditionsToBuild_Patch.cs" />
+    <Compile Include="Editplayer\Patches\ShipBuildModeManager_Update_Patch.cs" />
     <Compile Include="Editplayer\Patches\StopSprintMeter.cs" />
     <Compile Include="EditshipStrat\Patches\StopTime.cs" />
     <Compile Include="EditshipStrat\Patches\TimeOfDayAwakePatch.cs" />
+    <Compile Include="GameObjectManager.cs" />
+    <Compile Include="Pautils\PAUtils.cs" />
+    <Compile Include="Pautils\ProjectApparatus\SteamLobbyManager_loadLobbyListAndFilter_Patch.cs" />
+    <Compile Include="Pautils\Settings.cs" />
+    <Compile Include="Pautils\SteamLobbyManager_RefreshServerListButton_Patch.cs" />
+    <Compile Include="Pautils\UI.cs" />
+    <Compile Include="ProjectApparatus\Features.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <DependentUpon>Settings.settings</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="render\RenDer.2.cs" />
     <Compile Include="RENDER\Render.cs" />
     <Compile Include="Testplugin\testplugin.cs" />
     <Compile Include="XHGUI\Xhgui.cs" />

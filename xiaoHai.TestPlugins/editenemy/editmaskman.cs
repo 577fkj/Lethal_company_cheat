@@ -5,11 +5,11 @@ using UnityEngine;
 
 namespace editenemy
 {
-	// Token: 0x0200000C RID: 12
+	// Token: 0x02000018 RID: 24
 	[HarmonyPatch(typeof(MaskedPlayerEnemy))]
 	public class editmaskman
 	{
-		// Token: 0x06000023 RID: 35 RVA: 0x00002664 File Offset: 0x00000864
+		// Token: 0x0600005B RID: 91 RVA: 0x00003454 File Offset: 0x00001654
 		[HarmonyPostfix]
 		[HarmonyPatch("killAnimation")]
 		private static void KILLmaskman(MaskedPlayerEnemy __instance)
@@ -19,7 +19,7 @@ namespace editenemy
 			{
 				__instance.enemyType.canDie = true;
 				__instance.KillEnemyOnOwnerClient(false);
-				Debug.Log("杀死了面具人");
+				Debug.Log("小海提醒你:杀死了面具人");
 			}
 		}
 	}

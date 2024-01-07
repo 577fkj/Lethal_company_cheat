@@ -4,27 +4,27 @@ using UnityEngine;
 
 namespace Editplayer.Patches
 {
-	// Token: 0x02000009 RID: 9
+	// Token: 0x02000015 RID: 21
 	[HarmonyPatch(typeof(GameNetworkManager), "StartDisconnect")]
 	public static class IsDisconnect
 	{
-		// Token: 0x17000006 RID: 6
-		// (get) Token: 0x0600001C RID: 28 RVA: 0x000024EB File Offset: 0x000006EB
-		// (set) Token: 0x0600001D RID: 29 RVA: 0x000024F2 File Offset: 0x000006F2
+		// Token: 0x17000008 RID: 8
+		// (get) Token: 0x06000054 RID: 84 RVA: 0x000032B7 File Offset: 0x000014B7
+		// (set) Token: 0x06000055 RID: 85 RVA: 0x000032BE File Offset: 0x000014BE
 		public static bool isDisconnec { get; private set; }
 
-		// Token: 0x0600001E RID: 30 RVA: 0x000024FC File Offset: 0x000006FC
+		// Token: 0x06000056 RID: 86 RVA: 0x000032C8 File Offset: 0x000014C8
 		public static void Prefix()
 		{
-			isDisconnec = true;
-			Debug.Log("正在退出房间" + isDisconnec.ToString());
+			IsDisconnect.isDisconnec = true;
+			Debug.Log("小海提醒你:正在退出房间" + IsDisconnect.isDisconnec.ToString());
 		}
 
-		// Token: 0x0600001F RID: 31 RVA: 0x00002530 File Offset: 0x00000730
+		// Token: 0x06000057 RID: 87 RVA: 0x000032FC File Offset: 0x000014FC
 		public static void Postfix()
 		{
-			isDisconnec = false;
-			Debug.Log("已经退出房间" + isDisconnec.ToString());
+			IsDisconnect.isDisconnec = false;
+			Debug.Log("小海提醒你:已经退出房间" + IsDisconnect.isDisconnec.ToString());
 		}
 	}
 }

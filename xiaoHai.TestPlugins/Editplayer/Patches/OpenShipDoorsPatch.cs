@@ -2,47 +2,37 @@
 using GameNetcodeStuff;
 using HarmonyLib;
 using Testplugin;
-using UnityEngine;
 
 namespace Editplayer.Patches
 {
-	// Token: 0x02000006 RID: 6
+	// Token: 0x02000012 RID: 18
 	[HarmonyPatch(typeof(StartOfRound), "OpenShipDoors")]
 	public static class OpenShipDoorsPatch
 	{
-		// Token: 0x06000012 RID: 18 RVA: 0x00002318 File Offset: 0x00000518
+		// Token: 0x06000047 RID: 71 RVA: 0x000030B0 File Offset: 0x000012B0
 		public static void Postfix(StartOfRound __instance)
 		{
+			OpenShipDoorsPatch.opendoor_instance = __instance;
 			__instance.maxShipItemCapacity = 999;
 			PlayerControllerB localPlayerController = GameNetworkManager.Instance.localPlayerController;
-			if (testplugin.Instance1.Itemweight.Value != -1f)
+			bool flag = testplugin.Instance1.Itemweight.Value != -1f;
+			if (flag)
 			{
-				if (localPlayerController != null)
+				bool flag2 = localPlayerController != null;
+				if (flag2)
 				{
 					localPlayerController.carryWeight = testplugin.Instance1.Itemweight.Value;
 				}
 			}
-			opendoor_instance = __instance;
-			AllItemsList allItemsList = new AllItemsList();
-			foreach (Item item in allItemsList.itemsList)
-			{
-				Debug.Log("物品名:" + item.itemName + "物品ID:" + item.itemId.ToString());
-				item.requiresBattery = false;
-				if (testplugin.Instance1.ItemNotNeedTwoHands.Value)
-				{
-					item.twoHanded = false;
-				}
-				item.twoHandedAnimation = false;
-			}
 		}
 
-		// Token: 0x06000013 RID: 19 RVA: 0x00002428 File Offset: 0x00000628
+		// Token: 0x06000048 RID: 72 RVA: 0x0000311C File Offset: 0x0000131C
 		public static StartOfRound Getopenthedoor()
 		{
-			return opendoor_instance;
+			return OpenShipDoorsPatch.opendoor_instance;
 		}
 
-		// Token: 0x04000005 RID: 5
+		// Token: 0x04000023 RID: 35
 		private static StartOfRound opendoor_instance;
 	}
 }

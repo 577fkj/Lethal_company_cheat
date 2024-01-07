@@ -6,20 +6,20 @@ using UnityEngine;
 
 namespace EditnewLevel.Patches
 {
-	// Token: 0x0200000D RID: 13
+	// Token: 0x0200001A RID: 26
 	[HarmonyPatch(typeof(RoundManager), "LoadNewLevel")]
 	public static class EditNewLevel
 	{
-		// Token: 0x06000025 RID: 37 RVA: 0x000026B4 File Offset: 0x000008B4
+		// Token: 0x06000066 RID: 102 RVA: 0x000036A4 File Offset: 0x000018A4
 		[HarmonyPrefix]
 		private static bool EditNewLevelSpawn(ref SelectableLevel newLevel)
 		{
-			newLevel.maxEnemyPowerCount = testplugin.Instance1.MaxMonster.Value * 10;
-			newLevel.maxOutsideEnemyPowerCount = testplugin.Instance1.MaxMonster.Value * 10;
-			newLevel.maxDaytimeEnemyPowerCount = testplugin.Instance1.MaxMonster.Value * 10;
 			bool flag = testplugin.Instance1.Monsterrarity.Value != -1;
 			if (flag)
 			{
+				newLevel.maxEnemyPowerCount = testplugin.Instance1.MaxMonster.Value * 10;
+				newLevel.maxOutsideEnemyPowerCount = testplugin.Instance1.MaxMonster.Value * 10;
+				newLevel.maxDaytimeEnemyPowerCount = testplugin.Instance1.MaxMonster.Value * 10;
 				foreach (SpawnableEnemyWithRarity spawnableEnemyWithRarity in newLevel.Enemies)
 				{
 					spawnableEnemyWithRarity.rarity = testplugin.Instance1.Monsterrarity.Value;
@@ -60,21 +60,24 @@ namespace EditnewLevel.Patches
 					Debug.Log(spawnableEnemyWithRarity3.enemyType.enemyName);
 				}
 			}
-			if (testplugin.Instance1.Itemrarity.Value != -1)
+			bool flag2 = testplugin.Instance1.Itemrarity.Value != -1;
+			if (flag2)
 			{
-				if (testplugin.Instance.ItemmaxValue.Value != -1)
+				bool flag3 = testplugin.Instance.ItemmaxValue.Value != -1;
+				if (flag3)
 				{
 					newLevel.maxScrap = testplugin.Instance1.ItemmaxValue_value.Value;
 					newLevel.minScrap = newLevel.maxScrap / 2;
 				}
-				if (testplugin.Instance.ItemmaxValue_value.Value != -1)
+				bool flag4 = testplugin.Instance.ItemmaxValue_value.Value != -1;
+				if (flag4)
 				{
 					newLevel.maxTotalScrapValue = testplugin.Instance1.ItemmaxValue.Value * 100;
 					newLevel.minTotalScrapValue = newLevel.maxTotalScrapValue / 2;
 				}
 				Debug.Log(string.Concat(new string[]
 				{
-					"最大价值:",
+					"小海提醒你:最大价值:",
 					newLevel.maxTotalScrapValue.ToString(),
 					"  ,最小总价值",
 					newLevel.minTotalScrapValue.ToString(),
@@ -85,10 +88,22 @@ namespace EditnewLevel.Patches
 				}));
 				foreach (SpawnableItemWithRarity spawnableItemWithRarity in newLevel.spawnableScrap)
 				{
-					if (testplugin.Instance1.ItemmaxValue.Value != -1)
+					bool value4 = testplugin.Instance1.ItemNotNeedTwoHands.Value;
+					if (value4)
+					{
+						spawnableItemWithRarity.spawnableItem.twoHanded = false;
+						spawnableItemWithRarity.spawnableItem.twoHandedAnimation = false;
+					}
+					bool flag5 = testplugin.Instance1.ItemmaxValue.Value != -1;
+					if (flag5)
 					{
 						spawnableItemWithRarity.spawnableItem.maxValue = testplugin.Instance1.ItemmaxValue.Value;
 						spawnableItemWithRarity.spawnableItem.minValue = spawnableItemWithRarity.spawnableItem.maxValue / 5;
+					}
+					bool flag6 = testplugin.Instance1.Itemweight.Value != -1f;
+					if (flag6)
+					{
+						spawnableItemWithRarity.spawnableItem.weight = testplugin.Instance1.Itemweight.Value;
 					}
 					spawnableItemWithRarity.rarity = testplugin.Instance1.Itemrarity.Value;
 				}
@@ -96,17 +111,21 @@ namespace EditnewLevel.Patches
 			return true;
 		}
 
-		// Token: 0x02000012 RID: 18
+		// Token: 0x02000026 RID: 38
 		[HarmonyPatch(typeof(RoundManager))]
 		[HarmonyPatch("Awake")]
 		public static class moreenemy
 		{
-			// Token: 0x06000048 RID: 72 RVA: 0x000052E8 File Offset: 0x000034E8
+			// Token: 0x060000A4 RID: 164 RVA: 0x00007D04 File Offset: 0x00005F04
 			public static void Postfix(RoundManager __instance)
 			{
-				int[] array = (from i in Enumerable.Range(120, 36)
-				select i * 30).ToArray<int>();
-				Debug.Log("每半小时都能生成敌人");
+				bool flag = testplugin.Instance1.Monsterrarity.Value != -1;
+				if (flag)
+				{
+					int[] array = (from i in Enumerable.Range(120, 36)
+					select i * 30).ToArray<int>();
+					Debug.Log("小海提醒你:每半小时都能生成敌人");
+				}
 			}
 		}
 	}

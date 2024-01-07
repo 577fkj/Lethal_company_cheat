@@ -3,27 +3,27 @@ using HarmonyLib;
 
 namespace EditshipStrat.Patches
 {
-	// Token: 0x0200000F RID: 15
+	// Token: 0x0200001C RID: 28
 	[HarmonyPatch(typeof(TimeOfDay))]
 	[HarmonyPatch("MoveGlobalTime")]
 	public static class StopTime
 	{
-		// Token: 0x17000007 RID: 7
-		// (get) Token: 0x06000027 RID: 39 RVA: 0x00002BD5 File Offset: 0x00000DD5
-		// (set) Token: 0x06000028 RID: 40 RVA: 0x00002BDC File Offset: 0x00000DDC
+		// Token: 0x1700000B RID: 11
+		// (get) Token: 0x06000068 RID: 104 RVA: 0x00003D04 File Offset: 0x00001F04
+		// (set) Token: 0x06000069 RID: 105 RVA: 0x00003D0B File Offset: 0x00001F0B
 		public static bool PlayerResurrectedManually { get; private set; }
 
-		// Token: 0x06000029 RID: 41 RVA: 0x00002BE4 File Offset: 0x00000DE4
+		// Token: 0x0600006A RID: 106 RVA: 0x00003D14 File Offset: 0x00001F14
 		private static bool Prefix()
 		{
-			bool playerResurrectedManually = PlayerResurrectedManually;
+			bool playerResurrectedManually = StopTime.PlayerResurrectedManually;
 			return !playerResurrectedManually;
 		}
 
-		// Token: 0x0600002A RID: 42 RVA: 0x00002C05 File Offset: 0x00000E05
+		// Token: 0x0600006B RID: 107 RVA: 0x00003D35 File Offset: 0x00001F35
 		public static void SetPlayerResurrectedManually(bool a)
 		{
-            PlayerResurrectedManually = a;
+			StopTime.PlayerResurrectedManually = a;
 		}
 	}
 }
