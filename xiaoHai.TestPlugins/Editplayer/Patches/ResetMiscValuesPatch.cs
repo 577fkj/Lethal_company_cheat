@@ -3,16 +3,16 @@ using HarmonyLib;
 
 namespace Editplayer.Patches
 {
-	// Token: 0x02000013 RID: 19
+	// Token: 0x02000016 RID: 22
 	[HarmonyPatch(typeof(StartOfRound), "ResetMiscValues")]
 	public static class ResetMiscValuesPatch
 	{
-		// Token: 0x17000005 RID: 5
-		// (get) Token: 0x06000049 RID: 73 RVA: 0x00003133 File Offset: 0x00001333
-		// (set) Token: 0x0600004A RID: 74 RVA: 0x0000313A File Offset: 0x0000133A
+		// Token: 0x17000006 RID: 6
+		// (get) Token: 0x06000057 RID: 87 RVA: 0x00003953 File Offset: 0x00001B53
+		// (set) Token: 0x06000058 RID: 88 RVA: 0x0000395A File Offset: 0x00001B5A
 		public static bool PlayerResurrectedManually { get; private set; }
 
-		// Token: 0x0600004B RID: 75 RVA: 0x00003144 File Offset: 0x00001344
+		// Token: 0x06000059 RID: 89 RVA: 0x00003964 File Offset: 0x00001B64
 		private static void Prefix()
 		{
 			bool playerResurrectedManually = ResetMiscValuesPatch.PlayerResurrectedManually;
@@ -22,7 +22,7 @@ namespace Editplayer.Patches
 			}
 		}
 
-		// Token: 0x0600004C RID: 76 RVA: 0x00003165 File Offset: 0x00001365
+		// Token: 0x0600005A RID: 90 RVA: 0x00003985 File Offset: 0x00001B85
 		public static void SetPlayerResurrectedManually()
 		{
 			ResetMiscValuesPatch.PlayerResurrectedManually = true;

@@ -4,11 +4,11 @@ using XHGUI;
 
 namespace Editplayer.Patches
 {
-	// Token: 0x0200000F RID: 15
+	// Token: 0x02000012 RID: 18
 	[HarmonyPatch(typeof(HUDManager), "HoldInteractionFill")]
 	public class HUDManager_HoldInteractionFill_Patch
 	{
-		// Token: 0x06000040 RID: 64 RVA: 0x00002FE4 File Offset: 0x000011E4
+		// Token: 0x0600004E RID: 78 RVA: 0x00003804 File Offset: 0x00001A04
 		public static bool Prefix(HUDManager __instance, ref bool __result)
 		{
 			bool jishihudong = Xhgui.Instance.jishihudong;

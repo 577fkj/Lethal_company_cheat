@@ -5,11 +5,11 @@ using UnityEngine;
 
 namespace editenemy
 {
-	// Token: 0x02000018 RID: 24
+	// Token: 0x0200001B RID: 27
 	[HarmonyPatch(typeof(MaskedPlayerEnemy))]
 	public class editmaskman
 	{
-		// Token: 0x0600005B RID: 91 RVA: 0x00003454 File Offset: 0x00001654
+		// Token: 0x06000069 RID: 105 RVA: 0x00003C74 File Offset: 0x00001E74
 		[HarmonyPostfix]
 		[HarmonyPatch("killAnimation")]
 		private static void KILLmaskman(MaskedPlayerEnemy __instance)

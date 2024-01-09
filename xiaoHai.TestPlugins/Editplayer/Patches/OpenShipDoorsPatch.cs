@@ -5,11 +5,11 @@ using Testplugin;
 
 namespace Editplayer.Patches
 {
-	// Token: 0x02000012 RID: 18
+	// Token: 0x02000015 RID: 21
 	[HarmonyPatch(typeof(StartOfRound), "OpenShipDoors")]
 	public static class OpenShipDoorsPatch
 	{
-		// Token: 0x06000047 RID: 71 RVA: 0x000030B0 File Offset: 0x000012B0
+		// Token: 0x06000055 RID: 85 RVA: 0x000038D0 File Offset: 0x00001AD0
 		public static void Postfix(StartOfRound __instance)
 		{
 			OpenShipDoorsPatch.opendoor_instance = __instance;
@@ -26,13 +26,13 @@ namespace Editplayer.Patches
 			}
 		}
 
-		// Token: 0x06000048 RID: 72 RVA: 0x0000311C File Offset: 0x0000131C
+		// Token: 0x06000056 RID: 86 RVA: 0x0000393C File Offset: 0x00001B3C
 		public static StartOfRound Getopenthedoor()
 		{
 			return OpenShipDoorsPatch.opendoor_instance;
 		}
 
-		// Token: 0x04000023 RID: 35
+		// Token: 0x04000027 RID: 39
 		private static StartOfRound opendoor_instance;
 	}
 }

@@ -5,11 +5,11 @@ using UnityEngine;
 
 namespace editenemy
 {
-	// Token: 0x02000016 RID: 22
+	// Token: 0x02000019 RID: 25
 	[HarmonyPatch(typeof(RoundManager), "PlotOutEnemiesForNextHour")]
 	public static class EditEnemy
 	{
-		// Token: 0x06000058 RID: 88 RVA: 0x00003330 File Offset: 0x00001530
+		// Token: 0x06000066 RID: 102 RVA: 0x00003B50 File Offset: 0x00001D50
 		private static void Prefix(RoundManager __instance)
 		{
 			bool flag = __instance != null;

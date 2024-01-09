@@ -41,6 +41,7 @@ public class GameObjectManager
 			this.bigDoors = this.FindObjectsOfType<TerminalAccessibleObject>((TerminalAccessibleObject obj) => obj.isBigDoor);
 			yield return new WaitForSeconds(3f);
 		}
+		yield break;
 	}
 
 	// Token: 0x06000003 RID: 3 RVA: 0x00002090 File Offset: 0x00000290

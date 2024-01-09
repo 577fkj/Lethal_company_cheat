@@ -5,12 +5,12 @@ using UnityEngine;
 
 namespace EditshipStrat.Patches
 {
-	// Token: 0x0200001B RID: 27
+	// Token: 0x0200001E RID: 30
 	[HarmonyPatch(typeof(TimeOfDay))]
 	[HarmonyPatch("Awake")]
 	public static class TimeOfDayAwakePatch
 	{
-		// Token: 0x06000067 RID: 103 RVA: 0x00003BC8 File Offset: 0x00001DC8
+		// Token: 0x06000075 RID: 117 RVA: 0x000043E8 File Offset: 0x000025E8
 		private static void Prefix(TimeOfDay __instance)
 		{
 			bool flag = __instance.quotaVariables != null;

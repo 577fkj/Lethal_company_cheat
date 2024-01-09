@@ -4,11 +4,11 @@ using XHGUI;
 
 namespace Editplayer.Patches
 {
-	// Token: 0x0200000E RID: 14
+	// Token: 0x02000011 RID: 17
 	[HarmonyPatch(typeof(EnemyAI))]
 	public class EnemyAIPatch
 	{
-		// Token: 0x0600003E RID: 62 RVA: 0x00002FB8 File Offset: 0x000011B8
+		// Token: 0x0600004C RID: 76 RVA: 0x000037D8 File Offset: 0x000019D8
 		[HarmonyPatch("EnableEnemyMesh")]
 		[HarmonyPrefix]
 		private static void EnableEnemyMeshPrefix(ref bool enable)

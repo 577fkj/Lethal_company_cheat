@@ -4,14 +4,16 @@ using XHGUI;
 
 namespace Pautils
 {
-	// Token: 0x02000008 RID: 8
+	// Token: 0x0200000B RID: 11
 	public static class UI
 	{
+		// Token: 0x06000022 RID: 34 RVA: 0x00002C7E File Offset: 0x00000E7E
 		public static void Reset()
 		{
 			UI.strTooltip = null;
 		}
 
+		// Token: 0x06000023 RID: 35 RVA: 0x00002C88 File Offset: 0x00000E88
 		public static void TabContents(string strTabName, UI.Tabs tabToDisplay, Action tabContent)
 		{
 			bool flag = UI.nTab == tabToDisplay;
@@ -26,6 +28,7 @@ namespace Pautils
 			}
 		}
 
+		// Token: 0x06000024 RID: 36 RVA: 0x00002CBC File Offset: 0x00000EBC
 		public static bool CenteredButton(string strName)
 		{
 			GUILayout.BeginHorizontal(Array.Empty<GUILayoutOption>());
@@ -39,6 +42,7 @@ namespace Pautils
 			return result;
 		}
 
+		// Token: 0x06000025 RID: 37 RVA: 0x00002D04 File Offset: 0x00000F04
 		public static void Tab<T>(string strTabName, ref T iTab, T iTabEle, bool bCenter = false)
 		{
 			bool flag = bCenter ? UI.CenteredButton(strTabName) : GUILayout.Button(strTabName, Array.Empty<GUILayoutOption>());
@@ -49,6 +53,7 @@ namespace Pautils
 			}
 		}
 
+		// Token: 0x06000026 RID: 38 RVA: 0x00002D4A File Offset: 0x00000F4A
 		public static void Header(string str)
 		{
 			GUILayout.BeginHorizontal(Array.Empty<GUILayoutOption>());
@@ -61,6 +66,7 @@ namespace Pautils
 			GUILayout.EndHorizontal();
 		}
 
+		// Token: 0x06000027 RID: 39 RVA: 0x00002D80 File Offset: 0x00000F80
 		public static void ColorPicker(string str, ref Color col)
 		{
 			GUILayout.Label(string.Concat(new string[]
@@ -90,6 +96,7 @@ namespace Pautils
 			GUILayout.EndHorizontal();
 		}
 
+		// Token: 0x06000028 RID: 40 RVA: 0x00002EB8 File Offset: 0x000010B8
 		public static bool Checkbox(ref bool var, string option, string tooltip = "")
 		{
 			bool flag = var;
@@ -102,6 +109,7 @@ namespace Pautils
 			return flag != var;
 		}
 
+		// Token: 0x06000029 RID: 41 RVA: 0x00002F08 File Offset: 0x00001108
 		public static void Button(string option, string tooltip, Action action)
 		{
 			bool flag = GUILayout.Button(option, Array.Empty<GUILayoutOption>());
@@ -116,6 +124,7 @@ namespace Pautils
 			}
 		}
 
+		// Token: 0x0600002A RID: 42 RVA: 0x00002F54 File Offset: 0x00001154
 		public static void RenderTooltip()
 		{
 			bool flag = UI.strTooltip == null || UI.strTooltip == "";
@@ -131,6 +140,7 @@ namespace Pautils
 			}
 		}
 
+		// Token: 0x0600002B RID: 43 RVA: 0x00003050 File Offset: 0x00001250
 		public static Texture2D MakeTexture(int width, int height, Color color)
 		{
 			Color[] array = new Color[width * height];
@@ -144,6 +154,7 @@ namespace Pautils
 			return texture2D;
 		}
 
+		// Token: 0x0600002C RID: 44 RVA: 0x000030A4 File Offset: 0x000012A4
 		public static Texture2D MakeGradientTexture(int width, int height, Color startColor, Color endColor, bool isHorizontal = true)
 		{
 			Color[] array = new Color[width * height];
@@ -161,30 +172,30 @@ namespace Pautils
 			return texture2D;
 		}
 
-		// Token: 0x0400001F RID: 31
+		// Token: 0x04000023 RID: 35
 		public static UI.Tabs nTab;
 
-		// Token: 0x04000020 RID: 32
+		// Token: 0x04000024 RID: 36
 		public static string strTooltip;
 
-		// Token: 0x02000023 RID: 35
+		// Token: 0x02000027 RID: 39
 		public enum Tabs
 		{
-			// Token: 0x040000A2 RID: 162
+			// Token: 0x040000B7 RID: 183
 			Start,
-			// Token: 0x040000A3 RID: 163
+			// Token: 0x040000B8 RID: 184
 			Self,
-			// Token: 0x040000A4 RID: 164
+			// Token: 0x040000B9 RID: 185
 			Misc,
-			// Token: 0x040000A5 RID: 165
+			// Token: 0x040000BA RID: 186
 			ESP,
-			// Token: 0x040000A6 RID: 166
+			// Token: 0x040000BB RID: 187
 			Players,
-			// Token: 0x040000A7 RID: 167
+			// Token: 0x040000BC RID: 188
 			Graphics,
-			// Token: 0x040000A8 RID: 168
+			// Token: 0x040000BD RID: 189
 			Upgrades,
-			// Token: 0x040000A9 RID: 169
+			// Token: 0x040000BE RID: 190
 			Settings
 		}
 	}

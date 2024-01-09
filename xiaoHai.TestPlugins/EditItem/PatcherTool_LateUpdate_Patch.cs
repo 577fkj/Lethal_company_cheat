@@ -5,11 +5,11 @@ using XHGUI;
 
 namespace EditItem
 {
-	// Token: 0x02000004 RID: 4
+	// Token: 0x02000007 RID: 7
 	[HarmonyPatch(typeof(PatcherTool), "LateUpdate")]
 	public class PatcherTool_LateUpdate_Patch
 	{
-		// Token: 0x0600000B RID: 11 RVA: 0x000022D4 File Offset: 0x000004D4
+		// Token: 0x06000019 RID: 25 RVA: 0x00002AF4 File Offset: 0x00000CF4
 		public static void Postfix(PatcherTool __instance)
 		{
 			bool infiniteZapGun = Xhgui.Instance.InfiniteZapGun;

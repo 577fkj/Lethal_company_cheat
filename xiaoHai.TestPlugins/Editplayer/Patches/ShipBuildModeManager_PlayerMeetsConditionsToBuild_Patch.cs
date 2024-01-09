@@ -4,11 +4,11 @@ using XHGUI;
 
 namespace Editplayer.Patches
 {
-	// Token: 0x0200000D RID: 13
+	// Token: 0x02000010 RID: 16
 	[HarmonyPatch(typeof(ShipBuildModeManager), "PlayerMeetsConditionsToBuild")]
 	public class ShipBuildModeManager_PlayerMeetsConditionsToBuild_Patch
 	{
-		// Token: 0x0600003C RID: 60 RVA: 0x00002F84 File Offset: 0x00001184
+		// Token: 0x0600004A RID: 74 RVA: 0x000037A4 File Offset: 0x000019A4
 		public static bool Prefix(ShipBuildModeManager __instance, ref bool __result)
 		{
 			bool placeAnywhere = Xhgui.Instance.PlaceAnywhere;

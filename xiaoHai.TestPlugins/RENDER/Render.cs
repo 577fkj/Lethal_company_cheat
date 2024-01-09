@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace RENDER
 {
-	// Token: 0x0200000B RID: 11
+	// Token: 0x0200000E RID: 14
 	public static class Render
 	{
-		// Token: 0x17000004 RID: 4
-		// (get) Token: 0x0600002D RID: 45 RVA: 0x00002B20 File Offset: 0x00000D20
-		// (set) Token: 0x0600002E RID: 46 RVA: 0x00002B37 File Offset: 0x00000D37
+		// Token: 0x17000005 RID: 5
+		// (get) Token: 0x0600003B RID: 59 RVA: 0x00003340 File Offset: 0x00001540
+		// (set) Token: 0x0600003C RID: 60 RVA: 0x00003357 File Offset: 0x00001557
 		public static Color Color
 		{
 			get
@@ -21,14 +21,14 @@ namespace RENDER
 			}
 		}
 
-		// Token: 0x0600002F RID: 47 RVA: 0x00002B41 File Offset: 0x00000D41
+		// Token: 0x0600003D RID: 61 RVA: 0x00003361 File Offset: 0x00001561
 		public static void Line(Vector2 from, Vector2 to, float thickness, Color color)
 		{
 			Render.Color = color;
 			Render.Line(from, to, thickness);
 		}
 
-		// Token: 0x06000030 RID: 48 RVA: 0x00002B54 File Offset: 0x00000D54
+		// Token: 0x0600003E RID: 62 RVA: 0x00003374 File Offset: 0x00001574
 		public static void Line(Vector2 from, Vector2 to, float thickness)
 		{
 			Vector2 normalized = (to - from).normalized;
@@ -38,14 +38,14 @@ namespace RENDER
 			GUIUtility.RotateAroundPivot(-num, from);
 		}
 
-		// Token: 0x06000031 RID: 49 RVA: 0x00002BBD File Offset: 0x00000DBD
+		// Token: 0x0600003F RID: 63 RVA: 0x000033DD File Offset: 0x000015DD
 		public static void Box(Vector2 position, Vector2 size, float thickness, Color color, bool centered = true)
 		{
 			Render.Color = color;
 			Render.Box(position, size, thickness, centered);
 		}
 
-		// Token: 0x06000032 RID: 50 RVA: 0x00002BD4 File Offset: 0x00000DD4
+		// Token: 0x06000040 RID: 64 RVA: 0x000033F4 File Offset: 0x000015F4
 		public static void Box(Vector2 position, Vector2 size, float thickness, bool centered = true)
 		{
 			if (centered)
@@ -58,34 +58,34 @@ namespace RENDER
 			GUI.DrawTexture(new Rect(position.x, position.y + size.y, size.x + thickness, thickness), Texture2D.whiteTexture);
 		}
 
-		// Token: 0x06000033 RID: 51 RVA: 0x00002C98 File Offset: 0x00000E98
+		// Token: 0x06000041 RID: 65 RVA: 0x000034B8 File Offset: 0x000016B8
 		public static void Cross(Vector2 position, Vector2 size, float thickness, Color color)
 		{
 			Render.Color = color;
 			Render.Cross(position, size, thickness);
 		}
 
-		// Token: 0x06000034 RID: 52 RVA: 0x00002CAC File Offset: 0x00000EAC
+		// Token: 0x06000042 RID: 66 RVA: 0x000034CC File Offset: 0x000016CC
 		public static void Cross(Vector2 position, Vector2 size, float thickness)
 		{
 			GUI.DrawTexture(new Rect(position.x - size.x / 2f, position.y, size.x, thickness), Texture2D.whiteTexture);
 			GUI.DrawTexture(new Rect(position.x, position.y - size.y / 2f, thickness, size.y), Texture2D.whiteTexture);
 		}
 
-		// Token: 0x06000035 RID: 53 RVA: 0x00002D1A File Offset: 0x00000F1A
+		// Token: 0x06000043 RID: 67 RVA: 0x0000353A File Offset: 0x0000173A
 		public static void Dot(Vector2 position, Color color)
 		{
 			Render.Color = color;
 			Render.Dot(position);
 		}
 
-		// Token: 0x06000036 RID: 54 RVA: 0x00002D2B File Offset: 0x00000F2B
+		// Token: 0x06000044 RID: 68 RVA: 0x0000354B File Offset: 0x0000174B
 		public static void Dot(Vector2 position)
 		{
 			Render.Box(position - Vector2.one, Vector2.one * 2f, 1f, true);
 		}
 
-		// Token: 0x06000037 RID: 55 RVA: 0x00002D54 File Offset: 0x00000F54
+		// Token: 0x06000045 RID: 69 RVA: 0x00003574 File Offset: 0x00001774
 		public static void String(GUIStyle Style, float X, float Y, float W, float H, string str, Color col, bool centerx = false, bool centery = false)
 		{
 			GUIContent content = new GUIContent(str);
@@ -99,7 +99,7 @@ namespace RENDER
 			GUI.Label(new Rect((float)obj2 + 1f, num + 1f, vector.x, H), str, Style);
 		}
 
-		// Token: 0x06000038 RID: 56 RVA: 0x00002E10 File Offset: 0x00001010
+		// Token: 0x06000046 RID: 70 RVA: 0x00003630 File Offset: 0x00001830
 		public static void Circle(Vector2 center, float radius, float thickness, Color color)
 		{
 			Render.Color = color;
@@ -113,7 +113,7 @@ namespace RENDER
 			}
 		}
 
-		// Token: 0x06000039 RID: 57 RVA: 0x00002E84 File Offset: 0x00001084
+		// Token: 0x06000047 RID: 71 RVA: 0x000036A4 File Offset: 0x000018A4
 		public static void FilledCircle(Vector2 center, float radius, Color color)
 		{
 			Render.Color = color;
@@ -131,15 +131,15 @@ namespace RENDER
 			}
 		}
 
-		// Token: 0x02000024 RID: 36
+		// Token: 0x02000028 RID: 40
 		private class RingArray
 		{
-			// Token: 0x1700000F RID: 15
-			// (get) Token: 0x0600009F RID: 159 RVA: 0x00007B8C File Offset: 0x00005D8C
-			// (set) Token: 0x060000A0 RID: 160 RVA: 0x00007B94 File Offset: 0x00005D94
+			// Token: 0x17000010 RID: 16
+			// (get) Token: 0x060000B8 RID: 184 RVA: 0x000091C4 File Offset: 0x000073C4
+			// (set) Token: 0x060000B9 RID: 185 RVA: 0x000091CC File Offset: 0x000073CC
 			public Vector2[] Positions { get; private set; }
 
-			// Token: 0x060000A1 RID: 161 RVA: 0x00007BA0 File Offset: 0x00005DA0
+			// Token: 0x060000BA RID: 186 RVA: 0x000091D8 File Offset: 0x000073D8
 			public RingArray(int numSegments)
 			{
 				this.Positions = new Vector2[numSegments];

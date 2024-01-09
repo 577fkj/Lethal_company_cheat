@@ -6,11 +6,11 @@ using UnityEngine;
 
 namespace EditnewLevel.Patches
 {
-	// Token: 0x0200001A RID: 26
+	// Token: 0x0200001D RID: 29
 	[HarmonyPatch(typeof(RoundManager), "LoadNewLevel")]
 	public static class EditNewLevel
 	{
-		// Token: 0x06000066 RID: 102 RVA: 0x000036A4 File Offset: 0x000018A4
+		// Token: 0x06000074 RID: 116 RVA: 0x00003EC4 File Offset: 0x000020C4
 		[HarmonyPrefix]
 		private static bool EditNewLevelSpawn(ref SelectableLevel newLevel)
 		{
@@ -111,12 +111,12 @@ namespace EditnewLevel.Patches
 			return true;
 		}
 
-		// Token: 0x02000026 RID: 38
+		// Token: 0x0200002A RID: 42
 		[HarmonyPatch(typeof(RoundManager))]
 		[HarmonyPatch("Awake")]
 		public static class moreenemy
 		{
-			// Token: 0x060000A4 RID: 164 RVA: 0x00007D04 File Offset: 0x00005F04
+			// Token: 0x060000BD RID: 189 RVA: 0x0000933C File Offset: 0x0000753C
 			public static void Postfix(RoundManager __instance)
 			{
 				bool flag = testplugin.Instance1.Monsterrarity.Value != -1;

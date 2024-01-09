@@ -7,13 +7,13 @@ using UnityEngine.Rendering;
 
 namespace ProjectApparatus
 {
-	// Token: 0x0200001D RID: 29
+	// Token: 0x02000020 RID: 32
 	public static class Features
 	{
-		// Token: 0x02000027 RID: 39
+		// Token: 0x0200002B RID: 43
 		public class Thirdperson : MonoBehaviour
 		{
-			// Token: 0x060000A5 RID: 165 RVA: 0x00007D6C File Offset: 0x00005F6C
+			// Token: 0x060000BE RID: 190 RVA: 0x000093A4 File Offset: 0x000075A4
 			public void Start()
 			{
 				Features.Thirdperson.ThirdpersonCamera thirdpersonCamera = base.gameObject.AddComponent<Features.Thirdperson.ThirdpersonCamera>();
@@ -21,14 +21,14 @@ namespace ProjectApparatus
 				UnityEngine.Object.DontDestroyOnLoad(thirdpersonCamera);
 			}
 
-			// Token: 0x040000AB RID: 171
+			// Token: 0x040000C0 RID: 192
 			private static bool _previousState;
 
-			// Token: 0x0200002C RID: 44
+			// Token: 0x02000031 RID: 49
 			[HarmonyPatch(typeof(QuickMenuManager), "OpenQuickMenu")]
 			public class QuickMenuManager_OpenQuickMenu_Patch
 			{
-				// Token: 0x060000B5 RID: 181 RVA: 0x00008340 File Offset: 0x00006540
+				// Token: 0x060000D8 RID: 216 RVA: 0x00009A5C File Offset: 0x00007C5C
 				public static void Prefix()
 				{
 					Features.Thirdperson._previousState = Features.Thirdperson.ThirdpersonCamera.ViewState;
@@ -41,11 +41,11 @@ namespace ProjectApparatus
 				}
 			}
 
-			// Token: 0x0200002D RID: 45
+			// Token: 0x02000032 RID: 50
 			[HarmonyPatch(typeof(QuickMenuManager), "CloseQuickMenu")]
 			public class QuickMenuManager_CloseQuickMenu_Patch
 			{
-				// Token: 0x060000B7 RID: 183 RVA: 0x00008388 File Offset: 0x00006588
+				// Token: 0x060000DA RID: 218 RVA: 0x00009AA4 File Offset: 0x00007CA4
 				public static void Prefix()
 				{
 					bool previousState = Features.Thirdperson._previousState;
@@ -57,11 +57,11 @@ namespace ProjectApparatus
 				}
 			}
 
-			// Token: 0x0200002E RID: 46
+			// Token: 0x02000033 RID: 51
 			[HarmonyPatch(typeof(Terminal), "BeginUsingTerminal")]
 			public class Terminal_BeginUsingTerminal_Patch
 			{
-				// Token: 0x060000B9 RID: 185 RVA: 0x000083C0 File Offset: 0x000065C0
+				// Token: 0x060000DC RID: 220 RVA: 0x00009ADC File Offset: 0x00007CDC
 				public static void Prefix()
 				{
 					Features.Thirdperson._previousState = Features.Thirdperson.ThirdpersonCamera.ViewState;
@@ -74,11 +74,11 @@ namespace ProjectApparatus
 				}
 			}
 
-			// Token: 0x0200002F RID: 47
+			// Token: 0x02000034 RID: 52
 			[HarmonyPatch(typeof(Terminal), "QuitTerminal")]
 			public class Terminal_QuitTerminal_Patch
 			{
-				// Token: 0x060000BB RID: 187 RVA: 0x00008408 File Offset: 0x00006608
+				// Token: 0x060000DE RID: 222 RVA: 0x00009B24 File Offset: 0x00007D24
 				public static void Prefix()
 				{
 					bool previousState = Features.Thirdperson._previousState;
@@ -90,11 +90,11 @@ namespace ProjectApparatus
 				}
 			}
 
-			// Token: 0x02000030 RID: 48
+			// Token: 0x02000035 RID: 53
 			[HarmonyPatch(typeof(PlayerControllerB), "KillPlayer")]
 			public class PlayerControllerB_KillPlayer_Patch
 			{
-				// Token: 0x060000BD RID: 189 RVA: 0x00008440 File Offset: 0x00006640
+				// Token: 0x060000E0 RID: 224 RVA: 0x00009B5C File Offset: 0x00007D5C
 				public static void Prefix()
 				{
 					bool viewState = Features.Thirdperson.ThirdpersonCamera.ViewState;
@@ -105,10 +105,10 @@ namespace ProjectApparatus
 				}
 			}
 
-			// Token: 0x02000031 RID: 49
+			// Token: 0x02000036 RID: 54
 			public class ThirdpersonCamera : MonoBehaviour
 			{
-				// Token: 0x060000BF RID: 191 RVA: 0x00008468 File Offset: 0x00006668
+				// Token: 0x060000E2 RID: 226 RVA: 0x00009B84 File Offset: 0x00007D84
 				private void Awake()
 				{
 					Features.Thirdperson.ThirdpersonCamera._camera = base.gameObject.AddComponent<Camera>();
@@ -120,7 +120,7 @@ namespace ProjectApparatus
 					UnityEngine.Object.DontDestroyOnLoad(Features.Thirdperson.ThirdpersonCamera._camera);
 				}
 
-				// Token: 0x060000C0 RID: 192 RVA: 0x000084DC File Offset: 0x000066DC
+				// Token: 0x060000E3 RID: 227 RVA: 0x00009BF8 File Offset: 0x00007DF8
 				private void Update()
 				{
 					bool flag = GameObjectManager.instance.localPlayer == null || GameObjectManager.instance.localPlayer.quickMenuManager.isMenuOpen || GameObjectManager.instance.localPlayer.inTerminalMenu || GameObjectManager.instance.localPlayer.isPlayerDead;
@@ -130,7 +130,7 @@ namespace ProjectApparatus
 					}
 				}
 
-				// Token: 0x060000C1 RID: 193 RVA: 0x00008544 File Offset: 0x00006744
+				// Token: 0x060000E4 RID: 228 RVA: 0x00009C60 File Offset: 0x00007E60
 				public static void Toggle()
 				{
 					bool flag = GameObjectManager.instance.localPlayer == null || GameObjectManager.instance.localPlayer.isTypingChat || GameObjectManager.instance.localPlayer.quickMenuManager.isMenuOpen || GameObjectManager.instance.localPlayer.inTerminalMenu || GameObjectManager.instance.localPlayer.isPlayerDead;
@@ -164,18 +164,18 @@ namespace ProjectApparatus
 					}
 				}
 
-				// Token: 0x040000B5 RID: 181
+				// Token: 0x040000D1 RID: 209
 				private static Camera _camera;
 
-				// Token: 0x040000B6 RID: 182
+				// Token: 0x040000D2 RID: 210
 				public static bool ViewState;
 			}
 		}
 
-		// Token: 0x02000028 RID: 40
+		// Token: 0x0200002C RID: 44
 		public static class Possession
 		{
-			// Token: 0x060000A7 RID: 167 RVA: 0x00007DA0 File Offset: 0x00005FA0
+			// Token: 0x060000C0 RID: 192 RVA: 0x000093D8 File Offset: 0x000075D8
 			public static void StartPossession()
 			{
 				PlayerControllerB localPlayer = GameObjectManager.instance.localPlayer;
@@ -208,7 +208,7 @@ namespace ProjectApparatus
 				}
 			}
 
-			// Token: 0x060000A8 RID: 168 RVA: 0x00007EA4 File Offset: 0x000060A4
+			// Token: 0x060000C1 RID: 193 RVA: 0x000094DC File Offset: 0x000076DC
 			public static void StopPossession()
 			{
 				PlayerControllerB localPlayer = GameObjectManager.instance.localPlayer;
@@ -234,7 +234,7 @@ namespace ProjectApparatus
 				Features.Possession.lastpossessedEnemy = null;
 			}
 
-			// Token: 0x060000A9 RID: 169 RVA: 0x00007F80 File Offset: 0x00006180
+			// Token: 0x060000C2 RID: 194 RVA: 0x000095B8 File Offset: 0x000077B8
 			public static void UpdatePossession()
 			{
 				bool flag = Features.Possession.possessedEnemy;
@@ -278,13 +278,13 @@ namespace ProjectApparatus
 				}
 			}
 
-			// Token: 0x040000AC RID: 172
+			// Token: 0x040000C1 RID: 193
 			public static bool beginPossession;
 
-			// Token: 0x040000AD RID: 173
+			// Token: 0x040000C2 RID: 194
 			public static EnemyAI lastpossessedEnemy;
 
-			// Token: 0x040000AE RID: 174
+			// Token: 0x040000C3 RID: 195
 			public static EnemyAI possessedEnemy;
 		}
 	}

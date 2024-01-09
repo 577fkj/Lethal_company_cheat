@@ -8,21 +8,21 @@ using XHGUI;
 
 namespace Editplayer.Patches
 {
-	// Token: 0x02000014 RID: 20
+	// Token: 0x02000017 RID: 23
 	[HarmonyPatch(typeof(PlayerControllerB), "LateUpdate")]
 	public static class StopSprintMeter
 	{
-		// Token: 0x17000006 RID: 6
-		// (get) Token: 0x0600004D RID: 77 RVA: 0x0000316F File Offset: 0x0000136F
-		// (set) Token: 0x0600004E RID: 78 RVA: 0x00003176 File Offset: 0x00001376
+		// Token: 0x17000007 RID: 7
+		// (get) Token: 0x0600005B RID: 91 RVA: 0x0000398F File Offset: 0x00001B8F
+		// (set) Token: 0x0600005C RID: 92 RVA: 0x00003996 File Offset: 0x00001B96
 		public static bool stopspringtMeter { get; private set; }
 
-		// Token: 0x17000007 RID: 7
-		// (get) Token: 0x0600004F RID: 79 RVA: 0x0000317E File Offset: 0x0000137E
-		// (set) Token: 0x06000050 RID: 80 RVA: 0x00003185 File Offset: 0x00001385
+		// Token: 0x17000008 RID: 8
+		// (get) Token: 0x0600005D RID: 93 RVA: 0x0000399E File Offset: 0x00001B9E
+		// (set) Token: 0x0600005E RID: 94 RVA: 0x000039A5 File Offset: 0x00001BA5
 		public static bool notwohand { get; private set; }
 
-		// Token: 0x06000051 RID: 81 RVA: 0x00003190 File Offset: 0x00001390
+		// Token: 0x0600005F RID: 95 RVA: 0x000039B0 File Offset: 0x00001BB0
 		public static void Postfix(PlayerControllerB __instance)
 		{
 			bool stopspringtMeter = StopSprintMeter.stopspringtMeter;
@@ -51,7 +51,7 @@ namespace Editplayer.Patches
 			}
 		}
 
-		// Token: 0x06000052 RID: 82 RVA: 0x00003268 File Offset: 0x00001468
+		// Token: 0x06000060 RID: 96 RVA: 0x00003A88 File Offset: 0x00001C88
 		public static void isStopspringntMeter(bool a)
 		{
 			if (a)
@@ -64,7 +64,7 @@ namespace Editplayer.Patches
 			}
 		}
 
-		// Token: 0x06000053 RID: 83 RVA: 0x00003290 File Offset: 0x00001490
+		// Token: 0x06000061 RID: 97 RVA: 0x00003AB0 File Offset: 0x00001CB0
 		public static void isNoNeedTwoHands(bool a)
 		{
 			if (a)
@@ -77,11 +77,11 @@ namespace Editplayer.Patches
 			}
 		}
 
-		// Token: 0x02000025 RID: 37
+		// Token: 0x02000029 RID: 41
 		[HarmonyPatch(typeof(StartOfRound), "UpdatePlayerVoiceEffects")]
 		public class StartOfRound_UpdatePlayerVoiceEffects_Patch
 		{
-			// Token: 0x060000A2 RID: 162 RVA: 0x00007C08 File Offset: 0x00005E08
+			// Token: 0x060000BB RID: 187 RVA: 0x00009240 File Offset: 0x00007440
 			public static void Postfix(StartOfRound __instance)
 			{
 				bool flag = Xhgui.Instance.HearEveryone && !StartOfRound.Instance.shipIsLeaving;
